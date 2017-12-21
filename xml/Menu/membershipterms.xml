@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<menu>
+  <item>
+    <path>civicrm/sample/page</path>
+    <page_callback>CRM_Membershipterms_Page_SamplePage</page_callback>
+    <title>SamplePage</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/sample/form</path>
+    <page_callback>CRM_Membershipterms_Form_SampleForm</page_callback>
+    <title>SampleForm</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+</menu>

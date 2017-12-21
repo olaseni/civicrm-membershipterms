@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<table>
+  <base>CRM/Membershipterms</base>
+  <class>MembershipTerms</class>
+  <name>civicrm_membershipterms</name>
+  <comment>FIXME</comment>
+  <add>4.4</add>
+  <log>true</log>
+
+  <field>
+    <name>id</name>
+    <type>int unsigned</type>
+    <required>true</required>
+    <comment>Unique MembershipTerms ID</comment>
+    <add>4.4</add>
+  </field>
+  <primaryKey>
+    <name>id</name>
+    <autoincrement>true</autoincrement>
+  </primaryKey>
+
+  <field>
+    <name>contact_id</name>
+    <type>int unsigned</type>
+    <comment>FK to Contact</comment>
+      <required>true</required>
+    <add>4.4</add>
+  </field>
+  <foreignKey>
+    <name>contact_id</name>
+    <table>civicrm_contact</table>
+    <key>id</key>
+    <add>4.4</add>
+    <onDelete>CASCADE</onDelete>
+  </foreignKey>
+
+    <field>
+        <name>modifier_contact_id</name>
+        <type>int unsigned</type>
+        <comment>FK to Modifier Contact</comment>
+        <required>true</required>
+        <add>4.4</add>
+    </field>
+    <foreignKey>
+        <name>modifier_contact_id</name>
+        <table>civicrm_contact</table>
+        <key>id</key>
+        <add>4.4</add>
+        <onDelete>CASCADE</onDelete>
+    </foreignKey>
+
+  <field>
+    <name>membership_id</name>
+    <title>Membership ID</title>
+    <type>int unsigned</type>
+    <required>true</required>
+    <comment>FK to Membership table</comment>
+    <add>1.5</add>
+  </field>
+  <foreignKey>
+    <name>membership_id</name>
+    <table>civicrm_membership</table>
+    <key>id</key>
+    <add>1.5</add>
+    <onDelete>CASCADE</onDelete>
+  </foreignKey>
+
+
+    <field>
+        <name>contribution_id</name>
+        <title>Contribution ID</title>
+        <type>int unsigned</type>
+        <required>false</required>
+        <comment>FK to Contribution table</comment>
+        <add>1.5</add>
+    </field>
+    <foreignKey>
+        <name>contribution_id</name>
+        <table>civicrm_contribution</table>
+        <key>id</key>
+        <add>1.5</add>
+        <onDelete>CASCADE</onDelete>
+    </foreignKey>
+
+  <field>
+    <name>start_date</name>
+    <uniqueName>membershipterms_start_date</uniqueName>
+    <title>Membership Terms Start Date</title>
+    <type>date</type>
+    <import>true</import>
+    <headerPattern>/(member(ship)?.)?(term)?start(s)?(.date$)?/i</headerPattern>
+    <dataPattern>/\d{4}-?\d{2}-?\d{2}/</dataPattern>
+    <comment>Beginning of current uninterrupted membership term.</comment>
+    <add>1.5</add>
+    <html>
+      <type>Select Date</type>
+      <formatType>activityDate</formatType>
+    </html>
+  </field>
+  <field>
+    <name>end_date</name>
+    <uniqueName>membership_end_date</uniqueName>
+    <title>Membership Expiration Date</title>
+    <type>date</type>
+    <import>true</import>
+    <headerPattern>/(member(ship)?.)?(term)?end(s)?(.date$)?/i</headerPattern>
+    <dataPattern>/\d{4}-?\d{2}-?\d{2}/</dataPattern>
+    <comment>Current membership term expire date.</comment>
+    <add>1.5</add>
+    <html>
+      <type>Select Date</type>
+      <formatType>activityDate</formatType>
+    </html>
+  </field>
+
+  <field>
+    <name>number_of_terms</name>
+    <title>Number of terms</title>
+    <type>int unsigned</type>
+    <required>true</required>
+    <comment>...</comment>
+    <add>1.5</add>
+  </field>
+</table>
