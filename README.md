@@ -1,15 +1,13 @@
 # org.civicrm.olaseni.membershipterms
 
-![Screenshot](/images/screenshot.png)
-
-(*FIXME: In one or two paragraphs, describe what the extension does and why one would download it. *)
+*A CiviCRM extension to provide facilities for acknowledging and persisting consecutive periods between membership renewals*
 
 The extension is licensed under [AGPL-3.0](LICENSE.txt).
 
 ## Requirements
 
 * PHP v5.4+
-* CiviCRM (*FIXME: Version number*)
+* CiviCRM (*4.7.29*)
 
 ## Installation (Web UI)
 
@@ -22,7 +20,7 @@ install it with the command-line tool [cv](https://github.com/civicrm/cv).
 
 ```bash
 cd <extension-dir>
-cv dl org.civicrm.olaseni.membershipterms@https://github.com/FIXME/org.civicrm.olaseni.membershipterms/archive/master.zip
+cv dl org.civicrm.olaseni.membershipterms@https://github.com/olaseni/org.civicrm.olaseni.membershipterms/archive/master.zip
 ```
 
 ## Installation (CLI, Git)
@@ -31,14 +29,14 @@ Sysadmins and developers may clone the [Git](https://en.wikipedia.org/wiki/Git) 
 install it with the command-line tool [cv](https://github.com/civicrm/cv).
 
 ```bash
-git clone https://github.com/FIXME/org.civicrm.olaseni.membershipterms.git
+git clone https://github.com/olaseni/org.civicrm.olaseni.membershipterms.git
 cv en membershipterms
 ```
 
 ## Usage
 
-(* FIXME: Where would a new user navigate to get started? What changes would they see? *)
+*This extension does not provide a dedicated UI*
 
 ## Known Issues
 
-(* FIXME *)
+*-nil-*

@@ -139,7 +139,21 @@ function membershipterms_civicrm_entityTypes( &$entityTypes ) {
 
 define( 'CVCRMTERMS', 'civicrm_member_terms' );
 
+
+/**
+ * Implements hook_civicrm_pre() for building the state with which we will create MembershipTerms entities.
+ *
+ * It monitors object types 'Membership' and 'MembershipPayment'.
+ * Nothing is persisted at this point.
+ *
+ * @param $op
+ * @param $objectName
+ * @param $objectId
+ * @param $objectRef
+ */
 function membershipterms_civicrm_pre( $op, $objectName, $objectId, &$objectRef ) {
+	// Associate membership data with the current request.
+	// This makes it easy to persist data between hooks
 	if ( empty( $_REQUEST[ CVCRMTERMS ] ) ) {
 		$_REQUEST[ CVCRMTERMS ] = array(
 			'modifier_contact_id' => CRM_Core_Session::singleton()->getLoggedInContactID()
@@ -191,6 +205,8 @@ function membershipterms_civicrm_pre( $op, $objectName, $objectId, &$objectRef )
 /**
  * Implements hook_civicrm_post().
  *
+ * The data garnered in pre-persistence states is now used to create object instances
+ *
  * @param $op
  * @param $objectName
  * @param $objectId
@@ -222,13 +238,6 @@ function _pd( $date ) {
 	return CRM_Utils_Date::processDate( $date, null, false, 'Ymd' );
 }
 
-function _log( $msg_data ) {
-	$file = "/tmp/logit";
-	file_put_contents( $file, print_r( array(
-		'time' => date( 'r' ),
-		'data' => $msg_data,
-	), true ), FILE_APPEND | LOCK_EX );
-}
 
 /**
  * Implements hook_civicrm_preProcess().
